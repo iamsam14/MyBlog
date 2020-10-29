@@ -20,7 +20,7 @@ const SignUp = ({ history }) => {
       .then((res) => {
         sessionStorage.setItem("user", res.data);
         setCurrentUser(res.data);
-        history.push("/");
+        history.push("/home");
       })
       .catch((error) => console.log(error));
   };
