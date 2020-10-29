@@ -7,7 +7,6 @@ const Articles = () => {
 
   useEffect(() => {
     axios.get("/posts").then((res) => {
-      console.log("object");
       setAllPosts(res.data);
     });
   }, [allPosts]);
