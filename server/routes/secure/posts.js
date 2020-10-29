@@ -1,8 +1,14 @@
-const router = require("express").Router();
+const router = require("express").Router(),
+passport = require('../../middleware/authentication/index')
 let Post = require("../../db/models/Post");
 let User = require("../../db/models/User");
 
-router.get("/posts", async (req, res) => {
+router.get("/posts",  router.use(
+  passport.authenticate('jwt', {
+    session: false
+  })
+),
+async (req, res) => {
   try {
     const allPosts = await Post.find();
     res.status(201).json(allPosts);
@@ -11,7 +17,12 @@ router.get("/posts", async (req, res) => {
   }
 });
 
-router.post("/api/posts/add", async (req, res) => {
+router.post("/api/posts/add",  router.use(
+  passport.authenticate('jwt', {
+    session: false
+  })
+),
+async (req, res) => {
   try {
     const {
       title,
@@ -39,7 +50,12 @@ router.post("/api/posts/add", async (req, res) => {
   }
 });
 
-router.get('/api/post/:id', async (req, res) => {
+router.get('/api/post/:id',  router.use(
+  passport.authenticate('jwt', {
+    session: false
+  })
+),
+async (req, res) => {
   try {
     const findPost = await Post.findById(req.params.id);
     res.json(findPost);
@@ -48,7 +64,12 @@ router.get('/api/post/:id', async (req, res) => {
   }
 });
 
-router.delete('/api/post/delete/:id', async (req, res) => {
+router.delete('/api/post/delete/:id',  router.use(
+  passport.authenticate('jwt', {
+    session: false
+  })
+),
+async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     post.remove();
@@ -58,7 +79,12 @@ router.delete('/api/post/delete/:id', async (req, res) => {
   }
 });
 
-router.patch('/api/post/:id', async (req, res) => {
+router.patch('/api/post/:id',  router.use(
+  passport.authenticate('jwt', {
+    session: false
+  })
+),
+async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = [
     'title', 'article'
