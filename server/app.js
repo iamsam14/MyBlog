@@ -5,7 +5,8 @@ const express = require("express"),
   app = express(),
   cors = require("cors"),
   bodyParser = require("body-parser"),
-  passport = require("./middleware/authentication");
+  passport = require("./middleware/authentication"),
+  path = require('path');
 
 app.use(cors());
 app.use(bodyParser.json());
