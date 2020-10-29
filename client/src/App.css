@@ -1,0 +1,217 @@
+body {
+  background-color: #fef9ff;
+}
+
+header {
+  height: 50px;
+  position: relative;
+  background-color: #dc7fa1;
+  margin: -8px;
+}
+
+footer {
+  font-size: 1rem;
+  position: fixed;
+  bottom: 0.4rem;
+  right: 1rem;
+  text-align: right;
+  padding: 1rem;
+  color: #74121d;
+  z-index: -1;
+}
+
+nav {
+  background-color: #dc7fa1;
+  height: 50px;
+  position: relative;
+  margin: -8px;
+}
+
+.button-color {
+  background-color: #a51c30;
+  color: #fef9ff;
+}
+
+.menu-button {
+  background-color: red;
+  position: absolute;
+  z-index: 1;
+  right: 1rem;
+  top: 1rem;
+  height: 20px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-button-burger {
+  position: absolute;
+  right: 0;
+  top: 0.5rem;
+  width: 28px;
+  height: 3px;
+  background: #fef9ff;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-button-burger::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  width: 28px;
+  height: 3px;
+  background-color: #fef9ff;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-button-burger::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  width: 20px;
+  height: 3px;
+  background-color: #fef9ff;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-button-burger.open {
+  -webkit-transform: rotate(720deg);
+  transform: rotate(720deg);
+  background: transparent;
+}
+
+.menu-button-burger.open::before {
+  -webkit-transform: rotate(45deg) translate(5px, 8px);
+  transform: rotate(45deg) translate(5px, 8px);
+}
+
+.menu-button-burger.open::after {
+  width: 28px;
+  -webkit-transform: rotate(-45deg) translate(3px, -7px);
+  transform: rotate(-45deg) translate(3px, -7px);
+}
+
+.welcome {
+  text-align: center;
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+.nav {
+  position: fixed;
+  /* margin-top: -64px; */
+  left: 0;
+  width: 101vw;
+  opacity: 0.98;
+  visibility: hidden;
+}
+
+.nav.open {
+  visibility: visible;
+}
+
+.nav .menu-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column wrap;
+  flex-flow: column wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  background: #dc7fa1;
+  list-style-type: none;
+  padding-right: 1rem;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.nav .menu-nav.open {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+.nav .menu-nav-item {
+  -webkit-transform: translateX(100vw);
+  transform: translateX(100vw);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.nav .menu-nav-item.open {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.nav .menu-nav-link {
+  display: inline-block;
+  font-size: 2rem;
+  text-transform: uppercase;
+  padding: 2rem 0;
+  font-weight: 300;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  text-decoration: none;
+}
+
+.nav .menu-nav-link:hover {
+  color: #fef9ff;
+}
+
+.menu-nav-item:nth-child(1) {
+  -webkit-transition-delay: 0.25s;
+  transition-delay: 0.25s;
+}
+
+.menu-nav-item:nth-child(2) {
+  -webkit-transition-delay: 0.35s;
+  transition-delay: 0.35s;
+}
+
+.menu-nav-item:nth-child(3) {
+  -webkit-transition-delay: 0.45s;
+  transition-delay: 0.45s;
+}
+
+.menu-nav-item:nth-child(4) {
+  -webkit-transition-delay: 0.55s;
+  transition-delay: 0.55s;
+}
+
+.home-head {
+  color: #74121d;
+  font-size: 36px;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+}
+
+.home-intro {
+  color: #74121d;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.article_top {
+  margin-top: 3rem;
+  margin-right: 2rem;
+  text-align: right;
+}
+
+.articles {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  text-align: left;
+}

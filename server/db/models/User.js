@@ -39,9 +39,7 @@ const userSchema = new Schema(
         ref: "Post",
       },
     ],
-    postUpVotes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
-    postDownVotes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
-    admin: { type: Boolean, required: true, default: false },
+    admin: { type: Boolean, default: false },
     tokens: [
       {
         token: {

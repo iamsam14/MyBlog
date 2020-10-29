@@ -1,7 +1,7 @@
 const router = require("express").Router();
 let User = require("../db/models/User");
 
-router.get("/users", async (req, res) => {
+router.get("/api/users", async (req, res) => {
   try {
     const allUsers = await User.find();
     res.status(201).json(allUsers);
@@ -11,7 +11,7 @@ router.get("/users", async (req, res) => {
 });
 
 router.post("/api/users", async (req, res) => {
-  const { name, email, password, admin } = req.body;
+  const { name, email, password } = req.body;
   let user = await User.findOne({ email });
   if (user) {
     throw new Error("Use a different email!");
@@ -21,8 +21,8 @@ router.post("/api/users", async (req, res) => {
       name,
       email,
       password,
-      admin,
     });
+    console.log(newUser)
 
     const token = await newUser.generateAuthToken();
     res.cookie("jwt", token, {

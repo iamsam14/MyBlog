@@ -11,10 +11,7 @@ const postSchema = new Schema({
   author: {
     type: mongoose.Schema.Types.String,
     ref: "User",
-  },
-  images: [{ type: String, trim: true }],
-  upVotes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
-  downVotes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  }
 });
 
 postSchema.methods.toJSON = function () {

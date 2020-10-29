@@ -28,7 +28,7 @@ app.use(
   })
 );
 app.use("/", postRouter);
-app.use("/", userRouter);
+app.use("/users", userRouter);
 
 if (process.env.NODE_ENV === "production") {
   // Handle React routing, return all requests to React app

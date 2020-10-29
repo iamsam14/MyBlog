@@ -17,10 +17,7 @@ router.post("/api/posts/add", async (req, res) => {
       title,
       article,
       dateCreated,
-      author,
-      images,
-      upVotes,
-      downVotes,
+      author
     } = req.body;
 
     const newDate = new Date().toISOString();
@@ -29,23 +26,58 @@ router.post("/api/posts/add", async (req, res) => {
       title,
       article,
       dateCreated: newDate,
-      author: req.user.name,
-      images,
-      upVotes,
-      downVotes,
+      author: req.user.name
     });
 
     const savedPost = await newPost.save();
 
     const user = User.findById(req.user._id);
 
-    // user.author.push(newPost._id);
-
-    // await user.save();
-
     res.status(201).json(savedPost);
   } catch (error) {
     res.status(401).json({ error: error.toString() });
+  }
+});
+
+router.get('/api/post/:id', async (req, res) => {
+  try {
+    const findPost = await Post.findById(req.params.id);
+    res.json(findPost);
+  } catch (error) {
+    res.status(400).json({error: error.toString()});
+  }
+});
+
+router.delete('/api/post/delete/:id', async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    post.remove();
+    res.send(req.post);
+  } catch (error) {
+    res.status(500).send();
+  }
+});
+
+router.patch('/api/post/:id', async (req, res) => {
+  const updates = Object.keys(req.body);
+  const allowedUpdates = [
+    'title', 'article'
+  ];
+
+  // const validOperation = updates.every(update => 
+  //   allowedUpdates.includes(update)
+  // );
+  // if(!validOperation) {
+  //   return res.status(400).send({error: "invalid update!"})
+  // }
+
+  try {
+    const post = await Post.findById(req.params.id)
+    updates.forEach(update => (post[update] = req.body[update]));
+    await post.save();
+    res.json(req.post);
+  } catch (error) {
+    res.status(400).json({error: error.toString()});
   }
 });
 

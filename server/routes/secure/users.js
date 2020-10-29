@@ -1,6 +1,8 @@
 const router = require("express").Router(),
   isAdmin = require("../../middleware/authorization/authorization");
 
+  router.get('/api/users/me', async (req, res) => res.json(req.user))
+
 router.patch("/api/users/me", async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = ["name", "email", "password"];
@@ -18,7 +20,7 @@ router.patch("/api/users/me", async (req, res) => {
   }
 });
 
-router.post("/api/users/logout", async (req, res) => {
+router.post("/api/logout", async (req, res) => {
   try {
     req.user.tokens = req.user.tokens.filter((token) => {
       return token.token !== req.token;
