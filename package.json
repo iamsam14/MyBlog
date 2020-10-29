@@ -29,12 +29,12 @@
   },
   "scripts": {
     "start": "node server.js",
-    "client": "cd client && yarn run start",
+    "client": "cd client && npm run start",
     "server": "nodemon server.js",
-    "heroku-postbuild": "cd client && yarn && yarn run build",
+    "heroku-postbuild": "cd client && npm && npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently --kill-others-on-fail \"yarn run server\" \"yarn run client\""
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "eslintConfig": {
     "extends": "react-app"
