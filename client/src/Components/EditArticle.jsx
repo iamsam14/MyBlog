@@ -56,7 +56,6 @@ const EditArticle = ({ history }) => {
           Submit
         </Button>
       </Form>
-      <button onClick={() => console.log(form)}>test</button>
     </>
   );
 };

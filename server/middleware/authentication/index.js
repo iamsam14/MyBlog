@@ -6,6 +6,11 @@ const ExtractJwt = require("passport-jwt").ExtractJwt;
 
 let jwtOptions = {
   jwtFromRequest: (req) => {
+    if (!req.url.includes('/api')) {
+      const token = jwt.sign({ react_app: true }, process.env.JWT_SECRET);
+      return token;
+    }
+
     return req.cookies.jwt || ExtractJwt.fromAuthHeaderWithScheme("jwt")(req);
   },
   secretOrKey: process.env.JWT_SECRET,

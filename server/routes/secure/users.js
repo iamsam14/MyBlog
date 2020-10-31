@@ -2,18 +2,15 @@ const router = require("express").Router(),
   isAdmin = require("../../middleware/authorization/authorization"),
   passport = require('../../middleware/authentication/index');
 
-  router.get('/api/users/me',  router.use(
+  router.get('/api/users/me',   
+  router.use(
     passport.authenticate('jwt', {
       session: false
     })
   ),
  async (req, res) => res.json(req.user))
 
-router.patch("/api/users/me",  router.use(
-  passport.authenticate('jwt', {
-    session: false
-  })
-),
+router.patch("/api/users/me", 
 async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = ["name", "email", "password"];
@@ -31,11 +28,7 @@ async (req, res) => {
   }
 });
 
-router.post("/api/logout",  router.use(
-  passport.authenticate('jwt', {
-    session: false
-  })
-),
+router.post("/api/users/logout",  
 async (req, res) => {
   try {
     req.user.tokens = req.user.tokens.filter((token) => {
@@ -49,11 +42,7 @@ async (req, res) => {
   }
 });
 
-router.delete("/api/users/me",  router.use(
-  passport.authenticate('jwt', {
-    session: false
-  })
-),
+router.delete("/api/users/me",  
 async (req, res) => {
   try {
     await req.user.remove();

@@ -13,6 +13,17 @@ const SignUp = ({ history }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const login = () => {
+    axios
+      .post("/api/users/login", formData)
+      .then((res) => {
+        sessionStorage.setItem("user", res.data);
+        setCurrentUser(res.data);
+        history.push("/home");
+      })
+      .catch((error) => console.log(error));
+  };
+
   const handleSignUp = (e) => {
     e.preventDefault();
     axios
@@ -20,7 +31,7 @@ const SignUp = ({ history }) => {
       .then((res) => {
         sessionStorage.setItem("user", res.data);
         setCurrentUser(res.data);
-        history.push("/home");
+        login();
       })
       .catch((error) => console.log(error));
   };

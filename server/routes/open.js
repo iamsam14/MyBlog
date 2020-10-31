@@ -1,14 +1,6 @@
-const router = require("express").Router();
+const router = require("express").Router(),
+jwt = require('jsonwebtoken');
 let User = require("../db/models/User");
-
-router.get("/api/users", async (req, res) => {
-  try {
-    const allUsers = await User.find();
-    res.status(201).json(allUsers);
-  } catch (error) {
-    res.status(400).json({ error: error.toString() });
-  }
-});
 
 router.post("/api/users", async (req, res) => {
   const { name, email, password } = req.body;
@@ -22,7 +14,6 @@ router.post("/api/users", async (req, res) => {
       email,
       password,
     });
-    console.log(newUser)
 
     const token = await newUser.generateAuthToken();
     res.cookie("jwt", token, {
@@ -40,8 +31,10 @@ router.post("/api/users", async (req, res) => {
 router.post("/api/users/login", async (req, res) => {
   const { email, password } = req.body;
   try {
+
     const user = await User.findByCredentials(email, password);
     const token = await user.generateAuthToken();
+
     res.cookie("jwt", token, {
       httpOnly: true,
       sameSite: "strict",

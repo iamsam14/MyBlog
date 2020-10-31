@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { AppContextProvider } from './Context/AppContext';
+import PrivateRoute from './Components/PrivateRoutes';
 import EditArticle from "./Components/EditArticle";
 import CreateArticle from "./Components/CreateArticle";
 import Login from './pages/Login'
@@ -16,12 +17,12 @@ function App() {
       <AppContextProvider>
         <Router>      
             <Route exact path='/' component={SignUp} />
-            <Route path="/home" component={Home} />
             <Route path='/login' component={Login} />
-            <Route path='/articles' component={Articles} />
-            <Route path="/edit/:id" component={EditArticle} />
-            <Route path="/create" component={CreateArticle} />
-            <Route path="/article/:id" component={ViewArticle} />
+            <PrivateRoute path="/home" component={Home} />
+            <PrivateRoute path='/articles' component={Articles} />
+            <PrivateRoute path="/edit/:id" component={EditArticle} />
+            <PrivateRoute path="/create" component={CreateArticle} />
+            <PrivateRoute path="/article/:id" component={ViewArticle} />
         </Router>  
         <Footer/>
       </AppContextProvider>

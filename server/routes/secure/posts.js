@@ -3,11 +3,7 @@ passport = require('../../middleware/authentication/index')
 let Post = require("../../db/models/Post");
 let User = require("../../db/models/User");
 
-router.get("/posts",  router.use(
-  passport.authenticate('jwt', {
-    session: false
-  })
-),
+router.get("/api/posts",  
 async (req, res) => {
   try {
     const allPosts = await Post.find();
@@ -17,11 +13,7 @@ async (req, res) => {
   }
 });
 
-router.post("/api/posts/add",  router.use(
-  passport.authenticate('jwt', {
-    session: false
-  })
-),
+router.post("/api/posts/add",  
 async (req, res) => {
   try {
     const {
@@ -50,11 +42,7 @@ async (req, res) => {
   }
 });
 
-router.get('/api/post/:id',  router.use(
-  passport.authenticate('jwt', {
-    session: false
-  })
-),
+router.get('/api/post/:id',  
 async (req, res) => {
   try {
     const findPost = await Post.findById(req.params.id);
@@ -64,11 +52,7 @@ async (req, res) => {
   }
 });
 
-router.delete('/api/post/delete/:id',  router.use(
-  passport.authenticate('jwt', {
-    session: false
-  })
-),
+router.delete('/api/post/delete/:id',  
 async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
@@ -79,11 +63,7 @@ async (req, res) => {
   }
 });
 
-router.patch('/api/post/:id',  router.use(
-  passport.authenticate('jwt', {
-    session: false
-  })
-),
+router.patch('/api/post/:id',  
 async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = [

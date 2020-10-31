@@ -1,15 +1,10 @@
 require("./db/config");
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 const express = require("express"),
-  mongoose = require("mongoose"),
   app = express(),
-  cors = require("cors"),
-  bodyParser = require("body-parser"),
   passport = require("./middleware/authentication"),
   path = require('path');
 
-app.use(cors());
-app.use(bodyParser.json());
 
 app.use(express.json());
 if (process.env.NODE_ENV === "production") {
@@ -21,15 +16,15 @@ const openRouter = require("./routes/open"),
   userRouter = require("./routes/secure/users");
 cookieParser = require("cookie-parser");
 
-app.use("/", openRouter);
+app.use(openRouter);
 app.use(cookieParser());
 app.use(
   passport.authenticate("jwt", {
     session: false,
   })
 );
-app.use("/", postRouter);
-app.use("/users", userRouter);
+app.use(postRouter);
+app.use(userRouter);
 
 if (process.env.NODE_ENV === "production") {
   // Handle React routing, return all requests to React app

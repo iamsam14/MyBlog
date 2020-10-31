@@ -6,7 +6,7 @@ const Articles = () => {
   const [allPosts, setAllPosts] = useState(null);
 
   useEffect(() => {
-    axios.get("/posts").then((res) => {
+    axios.get("/api/posts").then((res) => {
       setAllPosts(res.data);
     });
   }, [allPosts]);
