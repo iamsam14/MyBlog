@@ -3,11 +3,6 @@ const router = require("express").Router(),
   passport = require('../../middleware/authentication/index');
 
   router.get('/api/users/me',   
-  router.use(
-    passport.authenticate('jwt', {
-      session: false
-    })
-  ),
  async (req, res) => res.json(req.user))
 
 router.patch("/api/users/me", 

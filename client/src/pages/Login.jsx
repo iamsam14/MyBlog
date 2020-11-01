@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, Form, Button } from "react-bootstrap";
 import { AppContext } from "../Context/AppContext";
 import axios from "axios";
-import NavigationBar from "../Components/NavigationBar";
+import HomeNav from "../Components/HomeNav";
 
 const Login = ({ history }) => {
   const [formData, setFormData] = useState(null);
@@ -12,8 +12,8 @@ const Login = ({ history }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
+  const handleLogin = (event) => {
+    event.preventDefault();
     axios
       .post("/api/users/login", formData)
       .then((res) => {
@@ -26,7 +26,7 @@ const Login = ({ history }) => {
 
   return (
     <>
-      <NavigationBar />
+      <HomeNav />
       <h3 className="welcome">Welcome back!</h3>
 
       <Container className="container d-flex flex-column align-items-center justify-content-center fullscreen">

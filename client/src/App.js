@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp'
 import Articles from "./Components/Articles";
 import ViewArticle from "./Components/ViewArticle";
 import Home from './pages/Home'
+import NavigationBar from './Components/NavigationBar';
 import Footer from './Components/Footer'
 import './App.css'
 

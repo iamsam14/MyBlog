@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, Form, Button } from "react-bootstrap";
 import { AppContext } from "../Context/AppContext";
 import axios from "axios";
-import NavigationBar from "../Components/NavigationBar";
+import HomeNav from "../Components/HomeNav";
 
 const SignUp = ({ history }) => {
   const [formData, setFormData] = useState(null);
@@ -37,7 +37,7 @@ const SignUp = ({ history }) => {
   };
   return (
     <div>
-      <NavigationBar />
+      <HomeNav />
       <h2 className="welcome m-5">Welcome to my food blog!</h2>
 
       <Container>
