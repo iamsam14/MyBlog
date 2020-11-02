@@ -10,7 +10,7 @@ const NavigationBar = () => {
   };
 
   return (
-    <nav>
+    <header>
       <div className={open ? "menu-button open" : "menu-button"}>
         <span
           className={open ? "menu-button-burger open" : "menu-button-burger"}
@@ -31,7 +31,7 @@ const NavigationBar = () => {
           </li>
         </ul>
       </nav>
-    </nav>
+    </header>
   );
 };
 

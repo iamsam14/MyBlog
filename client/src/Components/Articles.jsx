@@ -9,7 +9,7 @@ const Articles = () => {
     axios.get("/api/posts").then((res) => {
       setAllPosts(res.data);
     });
-  }, [allPosts]);
+  }, []);
 
   return (
     <>

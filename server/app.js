@@ -11,13 +11,14 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
-const openRouter = require("./routes/open"),
+const openRouter = require("./routes/index"),
   postRouter = require("./routes/secure/posts"),
-  userRouter = require("./routes/secure/users");
+  userRouter = require("./routes/secure/users"),
 cookieParser = require("cookie-parser");
 
-app.use(openRouter);
 app.use(cookieParser());
+app.use(openRouter);
+
 app.use(
   passport.authenticate("jwt", {
     session: false,
