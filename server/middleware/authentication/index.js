@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
-const JWTStrategy = require("passport-jwt").Strategy;
+const JwtStrategy = require("passport-jwt").Strategy;
 const User = require("../../db/models/User");
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 
@@ -19,7 +19,7 @@ let jwtOptions = {
 passport.use(
   "jwt",
 
-  new JWTStrategy(jwtOptions, async (jwtPayload, done) => {
+  new JwtStrategy(jwtOptions, async (jwtPayload, done) => {
     if (jwtPayload.react_app) {
       return done(null, true);
     }

@@ -3,7 +3,13 @@ const router = require("express").Router(),
   passport = require('../../middleware/authentication/index');
 
   router.get('/api/users/me',   
- async (req, res) => res.json(req.user))
+ async (req, res) => {
+  try {
+    res.json(req.user)
+  } catch (error) {
+    res.status(401).json({ error: error.toString() });
+  } 
+})
 
 router.patch("/api/users/me", 
 async (req, res) => {

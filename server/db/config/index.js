@@ -6,7 +6,7 @@ try {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
-    // useFindAndModify: false,
+    useFindAndModify: false,
   });
 } catch (e) {
   console.log(e.toString());

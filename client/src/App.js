@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AppContextProvider } from './Context/AppContext';
 import PrivateRoute from './Components/PrivateRoutes';
 import EditArticle from "./Components/EditArticle";
@@ -9,14 +9,14 @@ import SignUp from './pages/SignUp'
 import Articles from "./Components/Articles";
 import ViewArticle from "./Components/ViewArticle";
 import Home from './pages/Home'
-import NavigationBar from './Components/NavigationBar';
 import Footer from './Components/Footer'
 import './App.css'
 
 function App() {
   return (
       <AppContextProvider>
-        <Router>      
+        <Router> 
+          <Switch>     
             <Route exact path='/' component={SignUp} />
             <Route path='/login' component={Login} />
             <PrivateRoute path="/home" component={Home} />
@@ -24,7 +24,8 @@ function App() {
             <PrivateRoute path="/edit/:id" component={EditArticle} />
             <PrivateRoute path="/create" component={CreateArticle} />
             <PrivateRoute path="/article/:id" component={ViewArticle} />
-        </Router>  
+            </Switch>
+          </Router>  
         <Footer/>
       </AppContextProvider>
   );
