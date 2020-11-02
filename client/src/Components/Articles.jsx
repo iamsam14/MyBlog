@@ -18,16 +18,18 @@ const Articles = () => {
         <a href="/create">Add Post</a>
         <div className="articles">
           {allPosts
-            ? allPosts.map((post) => {
-                return (
-                  <div key={post._id}>
-                    <a href={`/article/${post._id}`}>
-                      <h3>{post.title}</h3>
-                    </a>
-                    <p>{post.article}</p>
-                  </div>
-                );
-              })
+            ? allPosts
+                .sort((a, b) => a.dateCreated - b.dateCreated)
+                .map((post) => {
+                  return (
+                    <div key={post._id}>
+                      <a href={`/article/${post._id}`}>
+                        <h3>{post.title}</h3>
+                      </a>
+                      <p>{post.article}</p>
+                    </div>
+                  );
+                })
             : ""}
         </div>
       </div>
