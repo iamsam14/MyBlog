@@ -17,7 +17,6 @@
     "mongodb": "^3.6.2",
     "mongoose": "^5.10.11",
     "mongoose-autopopulate": "^0.12.2",
-    "npm": "^7.0.6",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "path": "^0.12.7",
@@ -30,12 +29,12 @@
   },
   "scripts": {
     "start": "node server.js",
-    "client": "cd client && npm run start",
+    "client": "cd client && yarn run start",
     "server": "nodemon server.js",
-    "heroku-postbuild": "cd client && npm install && npm run build",
+    "heroku-postbuild": "cd client && yarn install && yarn run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "dev": "concurrently --kill-others-on-fail \"yarn run server\" \"yarn run client\""
   },
   "eslintConfig": {
     "extends": "react-app"
