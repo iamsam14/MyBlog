@@ -39,9 +39,8 @@ const SignUp = ({ history }) => {
     <div>
       <HomeNav />
       <h2 className="welcome m-5">Welcome to my food blog!</h2>
-
-      <Container>
-        <Form onSubmit={handleSignUp}>
+      <Container className="container d-flex flex-column align-items-center justify-content-center fullscreen">
+        <Form style={{ width: "300px" }} onSubmit={handleSignUp}>
           <Form.Group>
             <Form.Label htmlFor="fullName">Full Name</Form.Label>
             <Form.Control

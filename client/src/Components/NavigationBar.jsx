@@ -44,14 +44,6 @@ const NavigationBar = () => {
             </a>
           </li>
           <li className={open ? "menu-nav-item open" : "menu-nav-item"}>
-            <a
-              onClick={() => history.push("/search")}
-              className="menu-nav-link"
-            >
-              Search
-            </a>
-          </li>
-          <li className={open ? "menu-nav-item open" : "menu-nav-item"}>
             <a onClick={() => handleLogout()} className="menu-nav-link">
               Logout
             </a>

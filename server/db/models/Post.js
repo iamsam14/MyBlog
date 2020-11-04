@@ -11,7 +11,24 @@ const postSchema = new Schema({
   author: {
     type: mongoose.Schema.Types.String,
     ref: "User",
+  },
+  authorID: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   }
+}
+);
+
+postSchema.virtual('users', {
+  ref: User,
+  localField: 'author',
+  foreignField: 'name'
+});
+
+postSchema.virtual('users', {
+  ref: User,
+  localField: '_id',
+  foreignField: 'posts'
 });
 
 postSchema.methods.toJSON = function () {
@@ -25,6 +42,5 @@ postSchema.methods.toJSON = function () {
   return postObject;
 };
 
-postSchema.plugin(require("mongoose-autopopulate"));
 const Post = mongoose.model("Post", postSchema);
 module.exports = Post;

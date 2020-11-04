@@ -54,6 +54,12 @@ const userSchema = new Schema(
   }
 );
 
+userSchema.virtual('post', {
+  ref: Post,
+  localField: '_id',
+  foreignField: 'authorID'
+})
+
 userSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();
@@ -91,6 +97,5 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-userSchema.plugin(require("mongoose-autopopulate"));
 const User = mongoose.model("User", userSchema);
 module.exports = User;
