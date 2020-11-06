@@ -4,6 +4,7 @@ import { Container, Form, Button } from "react-bootstrap";
 import { AppContext } from "../Context/AppContext";
 import axios from "axios";
 import HomeNav from "../Components/HomeNav";
+import swal from "sweetalert";
 
 const Login = ({ history }) => {
   const [formData, setFormData] = useState(null);
@@ -21,7 +22,7 @@ const Login = ({ history }) => {
         setCurrentUser(res.data);
         history.push("/home");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => swal("Login Error: ", error.toString()));
   };
 
   return (

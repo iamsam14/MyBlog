@@ -22,8 +22,11 @@ const CreateArticle = ({ history }) => {
     <>
       <NavigationBar />
       <div className="article_top" style={{ textAlign: "left" }}>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="basicForm">
+        <Form
+          onSubmit={handleSubmit}
+          className="container d-flex flex-column align-items-center justify-content-center fullscreen"
+        >
+          <Form.Group controlId="basicForm" style={{ width: "300px" }}>
             <Form.Label>Title</Form.Label>
             <Form.Control
               type="text"
@@ -32,9 +35,10 @@ const CreateArticle = ({ history }) => {
               onChange={(e) => setForm({ ...form, title: e.target.value })}
             />
           </Form.Group>
-          <Form.Group>
+          <Form.Group style={{ width: "300px" }}>
             <Form.Label>Article</Form.Label>
             <Form.Control
+              as="textarea"
               type="text"
               placeholder="Article Text"
               rows="4"

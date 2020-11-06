@@ -4,6 +4,7 @@ import { Container, Form, Button } from "react-bootstrap";
 import { AppContext } from "../Context/AppContext";
 import axios from "axios";
 import HomeNav from "../Components/HomeNav";
+import swal from "sweetalert";
 
 const SignUp = ({ history }) => {
   const [formData, setFormData] = useState(null);
@@ -33,12 +34,22 @@ const SignUp = ({ history }) => {
         setCurrentUser(res.data);
         login();
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        swal("SignUp Error: ", error.toString());
+      });
   };
   return (
     <div>
       <HomeNav />
       <h2 className="welcome m-5">Welcome to my food blog!</h2>
+      <div className="rules mb-2">
+        <ul className="password">
+          Please fill out the form and make sure your password is:
+          <li>8 characters long</li>
+          <li>Includes at least one uppercase letter</li>
+          <li>Includes a special character</li>
+        </ul>
+      </div>
       <Container className="container d-flex flex-column align-items-center justify-content-center fullscreen">
         <Form style={{ width: "300px" }} onSubmit={handleSignUp}>
           <Form.Group>

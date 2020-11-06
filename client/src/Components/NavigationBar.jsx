@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 const NavigationBar = () => {
   const [open, setOpen] = useState(false);
-  const { currentUser, setCurrentUser } = useContext(AppContext);
+  const { setCurrentUser } = useContext(AppContext);
   const history = useHistory();
 
   const toggleMenu = () => {

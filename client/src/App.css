@@ -20,6 +20,7 @@ footer {
   z-index: -1;
 }
 
+/* Navbar */
 nav {
   background-color: #dc7fa1;
   height: 50px;
@@ -102,7 +103,6 @@ nav {
 
 .nav {
   position: fixed;
-  /* margin-top: -64px; */
   left: 0;
   width: 101vw;
   opacity: 0.98;
@@ -184,6 +184,7 @@ nav {
   transition-delay: 0.45s;
 }
 
+/* Home */
 .home-head {
   color: #74121d;
   font-size: 36px;
@@ -199,6 +200,29 @@ nav {
   padding: 0.5rem;
 }
 
+.home-buttons {
+  padding: 1.2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.create-button {
+  color: #fef9ff;
+  font-weight: 550;
+  padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+  margin-right: 2rem;
+  background-color: #dc7fa1;
+  border-radius: 3px;
+}
+
+.view-button {
+  color: #fef9ff;
+  font-weight: 550;
+  padding: 0.8rem 1.2rem;
+  background-color: #a51c30;
+  border-radius: 3px;
+}
+
 .article_top {
   margin-top: 3rem;
   margin-right: 2rem;
@@ -209,4 +233,15 @@ nav {
   margin-top: 2rem;
   margin-left: 2rem;
   text-align: left;
+}
+
+/* Signup */
+.rules {
+  display: flex;
+  justify-content: center;
+}
+
+.password li {
+  width: 90%;
+  margin-left: 2rem;
 }

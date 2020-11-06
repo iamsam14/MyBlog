@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import NavigationBar from "../Components/NavigationBar";
 
 const Home = ({ history }) => {
@@ -13,6 +14,14 @@ const Home = ({ history }) => {
         In this food blog you can add your own recipes as well as browse through
         other recipes
       </h4>
+      <div className="home-buttons">
+        <Link to="/create" target="_blank" rel="noopener noreferrer">
+          <button className="create-button">Create Post</button>
+        </Link>
+        <Link to="/articles" target="_blank" rel="noopener noreferrer">
+          <button className="view-button">View Posts</button>
+        </Link>
+      </div>
     </>
   );
 };

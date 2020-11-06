@@ -20,7 +20,8 @@ async (req, res) => {
       title,
       article,
       dateCreated,
-      author
+      author,
+      authorID
     } = req.body;
 
     const newDate = new Date().toISOString();
@@ -29,14 +30,19 @@ async (req, res) => {
       title,
       article,
       dateCreated: newDate,
-      author: req.user.name
+      author: req.user.name,
+      authorID: req.user._id
     });
 
-    const savedPost = await newPost.save();
+    await newPost.save();
 
-    const user = User.findById(req.user._id);
+    const user = await User.findById(req.user._id);
 
-    res.status(201).json(savedPost);
+    user.posts.push(newPost._id);
+
+    await user.save();
+
+    res.status(201).json(newPost);
   } catch (error) {
     res.status(401).json({ error: error.toString() });
   }
