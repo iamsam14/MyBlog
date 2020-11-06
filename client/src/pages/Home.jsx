@@ -15,12 +15,18 @@ const Home = ({ history }) => {
         other recipes
       </h4>
       <div className="home-buttons">
-        <Link to="/create" target="_blank" rel="noopener noreferrer">
-          <button className="create-button">Create Post</button>
-        </Link>
-        <Link to="/articles" target="_blank" rel="noopener noreferrer">
-          <button className="view-button">View Posts</button>
-        </Link>
+        <button
+          className="create-button"
+          onClick={() => history.push("/create")}
+        >
+          Create Post
+        </button>
+        <button
+          className="view-button"
+          onClick={() => history.push("/articles")}
+        >
+          View Posts
+        </button>
       </div>
     </>
   );

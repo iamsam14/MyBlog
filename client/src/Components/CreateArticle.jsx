@@ -22,6 +22,10 @@ const CreateArticle = ({ history }) => {
     <>
       <NavigationBar />
       <div className="article_top" style={{ textAlign: "left" }}>
+        <h2>
+          Hey there! On this page you can add the title of your recipe and its
+          ingredients and steps for others to see
+        </h2>
         <Form
           onSubmit={handleSubmit}
           className="container d-flex flex-column align-items-center justify-content-center fullscreen"

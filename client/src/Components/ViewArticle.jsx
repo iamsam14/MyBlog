@@ -37,14 +37,6 @@ const ViewArticle = ({ history }) => {
           <>
             <button onClick={() => handleDelete()}>Delete</button>
             <button onClick={() => history.push(`/edit/${id}`)}>Edit</button>
-            <button
-              onClick={() => {
-                console.log("user is : ", currentUser);
-                console.log("post is : ", postData);
-              }}
-            >
-              consoe
-            </button>
           </>
         ) : (
           ""
