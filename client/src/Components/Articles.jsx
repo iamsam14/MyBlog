@@ -15,8 +15,6 @@ const Articles = ({ history }) => {
     });
   }, [loading, setLoading]);
 
-  const summarize = () => {};
-
   return (
     <>
       <NavigationBar />

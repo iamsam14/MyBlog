@@ -30,7 +30,9 @@ const ViewArticle = ({ history }) => {
         <h1>{postData.title}</h1>
         <h3>{postData.author}</h3>
         <h6>{postData.dateCreated}</h6>
-        <p>{postData.article}</p>
+        <p style={{ whiteSpace: "pre-wrap", marginRight: "1.5rem" }}>
+          {postData.article}
+        </p>
       </section>
       <div className="article_top">
         {currentUser && currentUser._id === postData.authorID ? (

@@ -9,10 +9,6 @@ header {
   margin: -8px;
 }
 
-body div #root {
-  min-height: calc(100vh - 70px);
-}
-
 footer {
   margin-top: 100px;
   position: fixed;
