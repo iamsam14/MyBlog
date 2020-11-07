@@ -82,15 +82,19 @@ const SignUp = ({ history }) => {
               onChange={handleChange}
             />
           </Form.Group>
-          <Form.Group className="">
-            <Button id="button" variant="dark" type="submit" block>
+          <Form.Group>
+            <Button
+              id="button"
+              type="submit"
+              block
+              className="button-style"
+              style={{ backgroundColor: "#dc7fa1" }}
+            >
               Create Account
             </Button>
           </Form.Group>
         </Form>
-        <Link className="" to="/login">
-          Already a member? Login.
-        </Link>
+        <Link to="/login">Already a member? Login.</Link>
       </Container>
     </div>
   );

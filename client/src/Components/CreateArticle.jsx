@@ -21,7 +21,7 @@ const CreateArticle = ({ history }) => {
   return (
     <>
       <NavigationBar />
-      <div className="article_top" style={{ textAlign: "left" }}>
+      <div style={{ textAlign: "left" }}>
         <h2 style={{ textAlign: "center", margin: "2rem" }}>
           Hey there! On this page you can add the title of your recipe and its
           ingredients and steps for others to see
@@ -51,9 +51,9 @@ const CreateArticle = ({ history }) => {
             />
           </Form.Group>
           <Button
-            variant=""
+            className="button-style"
+            style={{ backgroundColor: "#dc7fa1" }}
             type="submit"
-            style={{ backgroundColor: "#74121D", color: "#FEF9FF" }}
           >
             Submit
           </Button>

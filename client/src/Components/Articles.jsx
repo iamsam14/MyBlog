@@ -27,7 +27,7 @@ const Articles = ({ history }) => {
   return (
     <>
       <NavigationBar />
-      <div className="article_top">
+      <div style={{ marginTop: "2rem" }}>
         <button
           className="add-post button-style"
           onClick={() => history.push("/create")}
@@ -39,7 +39,11 @@ const Articles = ({ history }) => {
             ? allPosts.map((post) => {
                 return (
                   <div key={post._id}>
-                    <a key={post.id + "1"} href={`/article/${post._id}`}>
+                    <a
+                      key={post.id + "1"}
+                      href={`/article/${post._id}`}
+                      style={{ color: "#74121D" }}
+                    >
                       <h3 key={post.id + "2"}>{post.title}</h3>
                     </a>
                     <p key={post.id + "3"}>

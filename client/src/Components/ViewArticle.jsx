@@ -34,7 +34,7 @@ const ViewArticle = ({ history }) => {
           {postData.article}
         </p>
       </section>
-      <div className="article_top">
+      <div style={{ marginLeft: "2rem", marginTop: "2rem" }}>
         {currentUser && currentUser._id === postData.authorID ? (
           <>
             <button

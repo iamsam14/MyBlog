@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import NavigationBar from "./NavigationBar";
 
 const EditArticle = ({ history }) => {
   const [form, setForm] = useState({});
@@ -28,8 +29,14 @@ const EditArticle = ({ history }) => {
   }, []);
   return (
     <>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group>
+      <NavigationBar />
+      <br />
+      <br />
+      <Form
+        className="container d-flex flex-column align-items-center justify-content-center fullscreen"
+        onSubmit={handleSubmit}
+      >
+        <Form.Group style={{ width: "300px" }}>
           <Form.Label>Title</Form.Label>
           <Form.Control
             value={form.title}
@@ -40,19 +47,23 @@ const EditArticle = ({ history }) => {
             onChange={(e) => setForm({ ...form, title: e.target.value })}
           />
         </Form.Group>
-        <Form.Group>
+        <Form.Group style={{ width: "300px" }}>
           <Form.Label>Article</Form.Label>
           <Form.Control
             value={form.article}
+            as="textarea"
             type="text"
             placeholder="Article Text"
             rows="4"
             required={true}
-            name="article"
             onChange={(e) => setForm({ ...form, article: e.target.value })}
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button
+          className="button-style"
+          style={{ backgroundColor: "#dc7fa1" }}
+          type="submit"
+        >
           Submit
         </Button>
       </Form>

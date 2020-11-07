@@ -207,10 +207,10 @@ nav {
 }
 
 .button-style {
-  font-weight: 550;
-  padding: 0.8rem 1.2rem;
-  border-radius: 3px;
-  color: #fef9ff;
+  font-weight: 550 !important;
+  padding: 0.8rem 1.2rem !important;
+  border-radius: 3px !important;
+  color: #fef9ff !important;
 }
 
 .create-button {
@@ -248,6 +248,7 @@ nav {
 /* All articles */
 .add-post {
   background-color: #dc7fa1;
+  margin-left: 2rem;
 }
 
 /* Article view */

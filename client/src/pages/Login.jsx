@@ -53,7 +53,13 @@ const Login = ({ history }) => {
             />
           </Form.Group>
           <Form.Group>
-            <Button id="button" variant="dark" type="submit" block>
+            <Button
+              id="button"
+              className="button-style"
+              style={{ backgroundColor: "#dc7fa1" }}
+              type="submit"
+              block
+            >
               Login
             </Button>
           </Form.Group>
