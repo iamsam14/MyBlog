@@ -22,7 +22,7 @@ const CreateArticle = ({ history }) => {
     <>
       <NavigationBar />
       <div className="article_top" style={{ textAlign: "left" }}>
-        <h2>
+        <h2 style={{ textAlign: "center", margin: "2rem" }}>
           Hey there! On this page you can add the title of your recipe and its
           ingredients and steps for others to see
         </h2>
@@ -50,7 +50,11 @@ const CreateArticle = ({ history }) => {
               onChange={(e) => setForm({ ...form, article: e.target.value })}
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button
+            variant=""
+            type="submit"
+            style={{ backgroundColor: "#74121D", color: "#FEF9FF" }}
+          >
             Submit
           </Button>
         </Form>

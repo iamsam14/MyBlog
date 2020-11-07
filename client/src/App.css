@@ -9,8 +9,12 @@ header {
   margin: -8px;
 }
 
+body div #root {
+  min-height: calc(100vh - 70px);
+}
+
 footer {
-  font-size: 1rem;
+  margin-top: 100px;
   position: fixed;
   bottom: 0.4rem;
   right: 1rem;
@@ -104,7 +108,7 @@ nav {
 .nav {
   position: fixed;
   left: 0;
-  width: 101vw;
+  width: 100vw;
   opacity: 0.98;
   visibility: hidden;
 }
@@ -206,21 +210,20 @@ nav {
   justify-content: center;
 }
 
-.create-button {
-  color: #fef9ff;
+.button-style {
   font-weight: 550;
-  padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 3px;
+  color: #fef9ff;
+}
+
+.create-button {
   margin-right: 2rem;
   background-color: #dc7fa1;
-  border-radius: 3px;
 }
 
 .view-button {
-  color: #fef9ff;
-  font-weight: 550;
-  padding: 0.8rem 1.2rem;
   background-color: #a51c30;
-  border-radius: 3px;
 }
 
 .article_top {
@@ -244,4 +247,19 @@ nav {
 .password li {
   width: 90%;
   margin-left: 2rem;
+}
+
+/* All articles */
+.add-post {
+  background-color: #dc7fa1;
+}
+
+/* Article view */
+.delete-button {
+  background-color: #a51c30;
+  margin-right: 2rem;
+}
+
+.edit-button {
+  background-color: #dc7fa1;
 }

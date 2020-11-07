@@ -35,8 +35,18 @@ const ViewArticle = ({ history }) => {
       <div className="article_top">
         {currentUser && currentUser._id === postData.authorID ? (
           <>
-            <button onClick={() => handleDelete()}>Delete</button>
-            <button onClick={() => history.push(`/edit/${id}`)}>Edit</button>
+            <button
+              className="delete-button button-style"
+              onClick={() => handleDelete()}
+            >
+              Delete
+            </button>
+            <button
+              className="edit-button button-style"
+              onClick={() => history.push(`/edit/${id}`)}
+            >
+              Edit
+            </button>
           </>
         ) : (
           ""

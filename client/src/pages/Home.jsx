@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import NavigationBar from "../Components/NavigationBar";
 
 const Home = ({ history }) => {
@@ -16,13 +15,13 @@ const Home = ({ history }) => {
       </h4>
       <div className="home-buttons">
         <button
-          className="create-button"
+          className="create-button button-style"
           onClick={() => history.push("/create")}
         >
           Create Post
         </button>
         <button
-          className="view-button"
+          className="view-button button-style"
           onClick={() => history.push("/articles")}
         >
           View Posts
