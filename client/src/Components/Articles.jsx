@@ -7,6 +7,15 @@ const Articles = ({ history }) => {
   const [allPosts, setAllPosts] = useState(null);
   const { loading, setLoading } = useContext(AppContext);
 
+  // const cutOff = (text) => {
+  //   text.split("");
+  //   while (text.length > 30) {
+  //     text.pop();
+  //   }
+  //   text.join("");
+  //   return text;
+  // };
+
   useEffect(() => {
     axios.get("/api/posts").then((res) => {
       setLoading(true);
@@ -29,14 +38,14 @@ const Articles = ({ history }) => {
           {allPosts
             ? allPosts.map((post) => {
                 return (
-                  <>
-                    <div key={post._id}>
-                      <a href={`/article/${post._id}`}>
-                        <h3>{post.title}</h3>
-                      </a>
-                      <p>{post.article}</p>
-                    </div>
-                  </>
+                  <div key={post._id}>
+                    <a key={post.id + "1"} href={`/article/${post._id}`}>
+                      <h3 key={post.id + "2"}>{post.title}</h3>
+                    </a>
+                    <p key={post.id + "3"}>
+                      {post.article.substring(0, 100)}...
+                    </p>
+                  </div>
                 );
               })
             : ""}
