@@ -71,6 +71,7 @@ async (req, res) => {
 
 router.patch('/api/post/:id',  
 async (req, res) => {
+  const {id} = req.params;
   const updates = Object.keys(req.body);
   const allowedUpdates = [
     'title', 'article'

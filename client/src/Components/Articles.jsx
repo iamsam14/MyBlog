@@ -7,15 +7,6 @@ const Articles = ({ history }) => {
   const [allPosts, setAllPosts] = useState(null);
   const { loading, setLoading } = useContext(AppContext);
 
-  // const cutOff = (text) => {
-  //   text.split("");
-  //   while (text.length > 30) {
-  //     text.pop();
-  //   }
-  //   text.join("");
-  //   return text;
-  // };
-
   useEffect(() => {
     axios.get("/api/posts").then((res) => {
       setLoading(true);

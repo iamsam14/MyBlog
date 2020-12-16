@@ -184,6 +184,11 @@ nav {
   transition-delay: 0.45s;
 }
 
+.menu-nav-item:nth-child(4) {
+  -webkit-transition-delay: 0.55s;
+  transition-delay: 0.55s;
+}
+
 /* Home */
 .home-head {
   color: #74121d;

@@ -19,12 +19,6 @@ const postSchema = new Schema({
 }
 );
 
-// postSchema.virtual('users', {
-//   ref: User,
-//   localField: 'author',
-//   foreignField: 'name'
-// });
-
 postSchema.virtual('users', {
   ref: User,
   localField: '_id',

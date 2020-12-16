@@ -13,11 +13,14 @@ const NavigationBar = () => {
   };
 
   const handleLogout = (e) => {
-    axios.post("/api/users/logout", { withCredentials: true }).then(() => {
-      setCurrentUser(null);
-      sessionStorage.removeItem("user");
-      history.push("/login");
-    });
+    axios
+      .post("/api/users/logout", { withCredentials: true })
+      .then(() => {
+        setCurrentUser(null);
+        sessionStorage.removeItem("user");
+        history.push("/login");
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -43,6 +46,14 @@ const NavigationBar = () => {
               Recipes
             </a>
           </li>
+          {/* <li className={open ? "menu-nav-item open" : "menu-nav-item"}>
+            <a
+              onClick={() => history.push("/search")}
+              className="menu-nav-link"
+            >
+              Search
+            </a>
+          </li> */}
           <li className={open ? "menu-nav-item open" : "menu-nav-item"}>
             <a onClick={() => handleLogout()} className="menu-nav-link">
               Logout

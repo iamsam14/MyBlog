@@ -1,6 +1,7 @@
 const router = require("express").Router(),
 jwt = require('jsonwebtoken');
-let User = require("../db/models/User");
+let User = require("../db/models/User"),
+Post = require('../db/models/Post');
 
 router.post("/api/users", async (req, res) => {
   const { name, email, password } = req.body;
@@ -45,5 +46,16 @@ router.post("/api/users/login", async (req, res) => {
     res.status(400).json({ error: error.toString() });
   }
 });
+
+router.post("/search/api/posts/", async (req, res) => {
+  const  title  = req.body.title;
+  const regex = /title/g
+  try {
+    const recipeTitle = await Post.find({title: {$regex: title, $options: '<gi>'}});
+    res.json(recipeTitle);
+  } catch (error) {
+    res.status(401).json({error: error.toString()})
+  }
+})
 
 module.exports = router;

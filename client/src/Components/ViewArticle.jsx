@@ -16,9 +16,12 @@ const ViewArticle = ({ history }) => {
   };
 
   useEffect(() => {
-    axios.get(`/api/post/${id}`).then((res) => {
-      setPostData(res.data);
-    });
+    axios
+      .get(`/api/post/${id}`)
+      .then((res) => {
+        setPostData(res.data);
+      })
+      .catch((error) => console.log(error));
   }, []);
   return (
     <>

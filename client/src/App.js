@@ -4,12 +4,13 @@ import { AppContextProvider } from './Context/AppContext';
 import PrivateRoute from './Components/PrivateRoutes';
 import EditArticle from "./Components/EditArticle";
 import CreateArticle from "./Components/CreateArticle";
-import Login from './pages/Login'
-import SignUp from './pages/SignUp'
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 import Articles from "./Components/Articles";
 import ViewArticle from "./Components/ViewArticle";
-import Home from './pages/Home'
-import Footer from './Components/Footer'
+import Home from './pages/Home';
+import Footer from './Components/Footer';
+import Search from './pages/Search';
 import './App.css'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <AppContextProvider>
         <Router> 
           <Switch>     
+            <Route path='/search' component={Search} />
             <Route exact path='/' component={SignUp} />
             <Route path='/login' component={Login} />
             <PrivateRoute path="/home" component={Home} />

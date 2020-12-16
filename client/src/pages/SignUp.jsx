@@ -14,7 +14,8 @@ const SignUp = ({ history }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const login = () => {
+  const login = (event) => {
+    event.preventDefault();
     axios
       .post("/api/users/login", formData)
       .then((res) => {
