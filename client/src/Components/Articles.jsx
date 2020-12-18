@@ -23,7 +23,14 @@ const Articles = ({ history }) => {
           className="add-post button-style"
           onClick={() => history.push("/create")}
         >
-          Add Post
+          Create Recipe
+        </button>
+        <button
+          className="view-button button-style"
+          style={{ marginLeft: "35px" }}
+          onClick={() => history.push("/search")}
+        >
+          Search Recipes
         </button>
         <div className="articles">
           {allPosts

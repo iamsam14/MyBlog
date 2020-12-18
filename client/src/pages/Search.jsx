@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import NavigationBar from "../Components/HomeNav";
+import NavigationBar from "../Components/NavigationBar";
 
 const Search = () => {
   const [queryTitle, setQueryTitle] = useState({});
@@ -24,32 +24,36 @@ const Search = () => {
   return (
     <>
       <NavigationBar />
-      <h1 style={{ marginTop: "2rem" }}>Search</h1>
-      <input
-        id="title"
-        name="title"
-        type="text"
-        name="recipes"
-        onChange={handleSearch}
-      />
-      {queriedPosts
-        ? queriedPosts.map((post) => {
-            return (
-              <>
-                <div key={post._id}>
-                  <a
-                    key={post.id + "1"}
-                    href={`/article/${post._id}`}
-                    style={{ color: "#74121D" }}
-                  >
-                    <h3 key={post.id + "2"}>{post.title}</h3>
-                  </a>
-                  <p key={post.id + "3"}>{post.article.substring(0, 100)}...</p>
-                </div>
-              </>
-            );
-          })
-        : ""}
+      <section className="articles">
+        <h1>Search</h1>
+        <input
+          id="title"
+          name="title"
+          type="text"
+          name="recipes"
+          onChange={handleSearch}
+        />
+        {queriedPosts
+          ? queriedPosts.map((post) => {
+              return (
+                <>
+                  <div key={post._id}>
+                    <a
+                      key={post.id + "1"}
+                      href={`/article/${post._id}`}
+                      style={{ color: "#74121D" }}
+                    >
+                      <h3 key={post.id + "2"}>{post.title}</h3>
+                    </a>
+                    <p key={post.id + "3"}>
+                      {post.article.substring(0, 100)}...
+                    </p>
+                  </div>
+                </>
+              );
+            })
+          : ""}
+      </section>
     </>
   );
 };

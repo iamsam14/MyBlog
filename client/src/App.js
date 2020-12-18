@@ -18,7 +18,7 @@ function App() {
       <AppContextProvider>
         <Router> 
           <Switch>     
-            <Route path='/search' component={Search} />
+            <PrivateRoute path='/search' component={Search} />
             <Route exact path='/' component={SignUp} />
             <Route path='/login' component={Login} />
             <PrivateRoute path="/home" component={Home} />
