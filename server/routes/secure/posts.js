@@ -58,6 +58,17 @@ async (req, res) => {
   }
 });
 
+router.post("/search/api/posts/", async (req, res) => {
+  const  title  = req.body.title;
+  const regex = /title/g
+  try {
+    const recipeTitle = await Post.find({title: {$regex: title, $options: '<gi>'}});
+    res.json(recipeTitle);
+  } catch (error) {
+    res.status(401).json({error: error.toString()})
+  }
+})
+
 router.delete('/api/post/delete/:id',  
 async (req, res) => {
   try {

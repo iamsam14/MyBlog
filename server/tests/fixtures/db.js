@@ -39,13 +39,13 @@ const userTwo = {
 const postOne = {
     title: 'title',
     article: 'article text',
-    authorID: userOneId,
+    authorID: userTwoId,
 }
 
 const postTwo = {
     title: 'title II',
     article: 'article II text',
-    authorID: userOneId,
+    authorID: userTwoId,
 }
 
 const postThree = {
@@ -57,7 +57,6 @@ const postThree = {
 const setUpDatabase = async () => {
     await User.deleteMany();
     await Post.deleteMany();
-    await new User(userOne).save();
     await new User(userTwo).save();
     await new Post(postOne).save();
     await new Post(postTwo).save();
