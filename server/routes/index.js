@@ -3,11 +3,15 @@ jwt = require('jsonwebtoken');
 let User = require("../db/models/User"),
 Post = require('../db/models/Post');
 
+function existingUser() {
+  throw new Error("Use a different email!");
+}
+
 router.post("/api/users", async (req, res) => {
   const { name, email, password } = req.body;
   let user = await User.findOne({ email });
   if (user) {
-    throw new Error("Use a different email!");
+    existingUser();
   }
   try {
     const newUser = new User({
@@ -23,7 +27,7 @@ router.post("/api/users", async (req, res) => {
       secure: process.env.NODE_ENV !== "production" ? false : true,
     });
 
-    res.status(201).json("User added");
+    res.status(201).json(newUser);
   } catch (error) {
     res.status(400).json({ error: error.toString() });
   }
