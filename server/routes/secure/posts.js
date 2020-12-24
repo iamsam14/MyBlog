@@ -9,7 +9,7 @@ async (req, res) => {
     const allPosts = await Post.find();
     res.status(201).json(allPosts);
   } catch (error) {
-    res.status(400).json({ error: error.toSting() });
+    res.status(401).json({ error: error.toSting() });
   }
 });
 

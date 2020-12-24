@@ -15,8 +15,9 @@ router.post("/api/users", async (req, res) => {
       email,
       password,
     });
-
+    // await newUser.save();
     const token = await newUser.generateAuthToken();
+
     res.cookie("jwt", token, {
       httpOnly: true,
       sameSite: "Strict",
@@ -25,7 +26,7 @@ router.post("/api/users", async (req, res) => {
 
     res.status(201).json(newUser);
   } catch (error) {
-    res.status(401).json({ error: error.toString() });
+    res.status(400).json({ error: error.toString() });
   }
 });
 

@@ -2,22 +2,19 @@ const router = require("express").Router(),
   isAdmin = require("../../middleware/authorization/authorization"),
   passport = require('../../middleware/authentication/index');
 
-  router.get('/api/users/me',   
- async (req, res) => {
-  try {
-    res.json(req.user)
-  } catch (error) {
-    res.status(401).json({ error: error.toString() });
-  } 
-})
+router.get('/api/users/me',   
+ async (req, res) => res.json(req.user))
 
 router.patch("/api/users/me", 
 async (req, res) => {
   const updates = Object.keys(req.body);
-  const allowedUpdates = ["name", "email", "password"];
-  const isValidOperation = updates.every((update) => {
-    allowedUpdates.includes(update);
-  });
+  const allowedUpdates = {
+    name: true,
+    email: true,
+  };
+  const isValidOperation = updates.every((update) => 
+    allowedUpdates[update]
+  );
   if (!isValidOperation)
     return res.status(400).send({ error: "invalid update!" });
   try {
@@ -50,7 +47,7 @@ async (req, res) => {
     res.clearCookie("jwt");
     res.json({ message: "user deleted" });
   } catch (error) {
-    res.status(500).json({ error: error.toString() });
+    res.status(401).json({ error: error.toString() });
   }
 });
 

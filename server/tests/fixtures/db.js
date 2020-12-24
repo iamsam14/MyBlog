@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const Post = require('../../db/models/Post');
 const User = require('../../db/models/User');
+require('dotenv').config();
 
 afterAll(async () => {
     await mongoose.connection.close();
@@ -31,7 +32,7 @@ const userTwo = {
     admin: false,
     tokens: [
         {
-            tokens: jwt.sign({_id: userTwoId}, process.env.JWT_SECRET),
+            token: jwt.sign({_id: userTwoId}, process.env.JWT_SECRET),
         },
     ],
 };
@@ -39,18 +40,21 @@ const userTwo = {
 const postOne = {
     title: 'title',
     article: 'article text',
+    author: userTwo.name,
     authorID: userTwoId,
 }
 
 const postTwo = {
     title: 'title II',
     article: 'article II text',
+    author: userTwo.name,
     authorID: userTwoId,
 }
 
 const postThree = {
     title: 'title III',
     article: 'article part 3 text',
+    author: userTwo.name,
     authorID: userTwoId,
 };
 
