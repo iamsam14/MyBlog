@@ -49,7 +49,7 @@ const NavigationBar = () => {
       </a>
      </li>
      <li className={open ? 'menu-nav-item open' : 'menu-nav-item'}>
-      <a href="#" onClick={() => handleLogout()} className="menu-nav-link">
+      <a href="#0" onClick={() => handleLogout()} className="menu-nav-link">
        Logout
       </a>
      </li>
