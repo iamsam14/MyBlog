@@ -23,10 +23,7 @@ const EditArticle = ({ history }) => {
   axios.get(`/api/post/${id}`).then((res) => {
    setForm(res.data);
   });
-  return () => {
-   // cleanup;
-  };
- }, [form]);
+ });
  return (
   <>
    <NavigationBar />

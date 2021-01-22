@@ -22,7 +22,7 @@ const ViewArticle = ({ history }) => {
     setPostData(res.data);
    })
    .catch((error) => console.log(error));
- }, [postData]);
+ });
  return (
   <>
    <NavigationBar />
