@@ -84,12 +84,13 @@ router.patch('/api/post/:id',
 async (req, res) => {
   const {id} = req.params;
   const updates = Object.keys(req.body);
-  const allowedUpdates = [
-    'title', 'article'
-  ];
+  const allowedUpdates = {
+    title: true, 
+    article: true,
+  };
 
   // const validOperation = updates.every(update => 
-  //   allowedUpdates.includes(update)
+  //   allowedUpdates[update];
   // );
   // if(!validOperation) {
   //   return res.status(400).send({error: "invalid update!"})

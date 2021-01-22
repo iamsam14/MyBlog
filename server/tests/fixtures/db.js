@@ -8,8 +8,11 @@ afterAll(async () => {
     await mongoose.connection.close();
 });
 
-const userOneId = new mongoose.Types.ObjectId
-const userTwoId = new mongoose.Types.ObjectId
+const userOneId = new mongoose.Types.ObjectId;
+const userTwoId = new mongoose.Types.ObjectId;
+const postOneId = new mongoose.Types.ObjectId;
+const postTwoId = new mongoose.Types.ObjectId;
+const postThreeId = new mongoose.Types.ObjectId;
 
 const userOne = {
     _id: userOneId,
@@ -38,24 +41,27 @@ const userTwo = {
 };
 
 const postOne = {
+    _id: postOneId,
     title: 'title',
     article: 'article text',
     author: userTwo.name,
-    authorID: userTwoId,
+    authorId: userTwoId,
 }
 
 const postTwo = {
+    _id: postTwoId,
     title: 'title II',
     article: 'article II text',
     author: userTwo.name,
-    authorID: userTwoId,
+    authorId: userTwoId,
 }
 
 const postThree = {
+    _id: postThreeId,
     title: 'title III',
     article: 'article part 3 text',
     author: userTwo.name,
-    authorID: userTwoId,
+    authorId: userTwoId,
 };
 
 const setUpDatabase = async () => {
@@ -65,6 +71,7 @@ const setUpDatabase = async () => {
     await new Post(postOne).save();
     await new Post(postTwo).save();
     await new Post(postThree).save();
+    userTwo.posts = [postOne, postTwo, postThree]
 }
 
 module.exports = {
